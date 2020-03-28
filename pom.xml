@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.idempiere</groupId>
+	<version>7.1.0-SNAPSHOT</version>
+	<artifactId>org.brerp.kanban.main</artifactId>
+	<packaging>pom</packaging>
+	<modules>
+		<module>org.brerp.kanban.base</module>
+		<module>org.brerp.kanban.base.callout</module>
+		<module>org.brerp.kanban.base.process</module>
+		<module>org.brerp.kanban.ui</module>
+		<module>org.brerp.kanban.ui.zk</module>
+		<module>org.brerp.kanban.ui.zk.resources</module>
+		<module>org.brerp.kanban.server.feature</module>
+		<module>org.brerp.kanban.p2.targetplatform</module>
+		<module>org.brerp.kanban.p2.site</module>
+	</modules>
+
+</project>

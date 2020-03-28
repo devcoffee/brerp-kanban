@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.brerp.kanban.server.feature_7.1.0.qualifier" id="org.brerp.kanban.server.feature" version="7.1.0.qualifier">
+      <category name="brerp.kanban.main"/>
+   </feature>
+   <category-def name="brerp.kanban.main" label="brerp.kanban main"/>
+</site>
