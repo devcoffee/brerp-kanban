@@ -53,8 +53,8 @@ import org.kanbanboard.model.MKanbanStatus;
 public class KanbanBoard {
 
 	public static CLogger log = CLogger.getCLogger(KanbanBoard.class);
-	
-	protected final static String PROCESS_TYPE = "processType"; 
+
+	protected final static String PROCESS_TYPE = "processType";
 	protected final static String CARD_PROCESS = "cardProcess";
 	protected final static String STATUS_PROCESS = "statusProcess";
 	protected final static String BOARD_PROCESS = "boardProcess";
@@ -63,19 +63,19 @@ public class KanbanBoard {
 	private List<MKanbanStatus> statuses    = null;
 	private MKanbanStatus       activeStatus;
 	private String              isReadWrite = null;
-	private String              summarySql = null;		
-	
+	private String              summarySql = null;
+
 	//Associated processes
 	private List<MKanbanProcess> processes  = null;
 	private List<MKanbanProcess> statusProcesses  = null;
 	private List<MKanbanProcess> boardProcesses  = null;
 	private List<MKanbanProcess> cardProcesses  = null;
-	
+
 	//Parameters
 	private List<MKanbanParameter> boardParameters  = null;
 
 	protected int windowNo = 0;
-	
+
 	public int getNumberOfCards() {
 		return kanbanBoard.getNumberOfCards();
 	}
@@ -92,10 +92,10 @@ public class KanbanBoard {
 			sql = "SELECT k.KDB_KanbanBoard_ID, k.Name "
 					+ "FROM KDB_KanbanBoard k "
 					+ "WHERE k.AD_Client_ID IN (0, ?) AND k.IsActive='Y' "
-					+ "AND k.KDB_KanbanBoard_ID IN (SELECT KDB_KanbanBoard_ID FROM KDB_KanbanControlAccess WHERE (AD_Role_ID = ? " 
-					+ "                                                              OR AD_Role_ID IN (SELECT Included_Role_ID " 
-					+ "                                                                              FROM   AD_Role_Included " 
-					+ "                                                                              WHERE  AD_Role_id = ? " 
+					+ "AND k.KDB_KanbanBoard_ID IN (SELECT KDB_KanbanBoard_ID FROM KDB_KanbanControlAccess WHERE (AD_Role_ID = ? "
+					+ "                                                              OR AD_Role_ID IN (SELECT Included_Role_ID "
+					+ "                                                                              FROM   AD_Role_Included "
+					+ "                                                                              WHERE  AD_Role_id = ? "
 					+ "                                                                              AND IsActive = 'Y'))) "
 					+ "ORDER BY k.Name";
 
@@ -104,14 +104,14 @@ public class KanbanBoard {
 			sql = "SELECT k.KDB_KanbanBoard_ID, kt.Name "
 					+ "FROM KDB_KanbanBoard k JOIN KDB_KanbanBoard_Trl kt ON (k.KDB_KanbanBoard_ID=kt.KDB_KanbanBoard_ID) "
 					+ "WHERE k.AD_Client_ID IN (0, ?) AND k.IsActive='Y' "
-					+ "AND k.KDB_KanbanBoard_ID IN (SELECT KDB_KanbanBoard_ID FROM KDB_KanbanControlAccess WHERE (AD_Role_ID = ? " 
-					+ "                                                              OR AD_Role_ID IN (SELECT Included_Role_ID " 
-					+ "                                                                              FROM   AD_Role_Included " 
-					+ "                                                                              WHERE  AD_Role_id = ? " 
+					+ "AND k.KDB_KanbanBoard_ID IN (SELECT KDB_KanbanBoard_ID FROM KDB_KanbanControlAccess WHERE (AD_Role_ID = ? "
+					+ "                                                              OR AD_Role_ID IN (SELECT Included_Role_ID "
+					+ "                                                                              FROM   AD_Role_Included "
+					+ "                                                                              WHERE  AD_Role_id = ? "
 					+ "                                                                              AND IsActive = 'Y'))) "
 					+ "AND kt.AD_Language=? "
 					+ "ORDER BY kt.Name";
-			
+
 			list = DB.getKeyNamePairs(null, sql, true, Env.getAD_Client_ID(Env.getCtx()), Env.getAD_Role_ID(Env.getCtx()), Env.getAD_Role_ID(Env.getCtx()), Env.getAD_Language(Env.getCtx()));
 		}
 		return list;
@@ -121,9 +121,9 @@ public class KanbanBoard {
 		if (isReadWrite == null) {
 			String sql = "SELECT isreadwrite FROM KDB_KanbanControlAccess " +
 					"WHERE KDB_KanbanBoard_ID = ? AND IsActive = 'Y' AND (AD_Role_ID = ? "
-					+ "                                                OR AD_Role_ID IN (SELECT Included_Role_ID " 
-					+ "                                                                  FROM   AD_Role_Included " 
-					+ "                                                                  WHERE  AD_Role_id = ? " 
+					+ "                                                OR AD_Role_ID IN (SELECT Included_Role_ID "
+					+ "                                                                  FROM   AD_Role_Included "
+					+ "                                                                  WHERE  AD_Role_id = ? "
 					+ "                                                                  AND IsActive = 'Y'))";
 
 			PreparedStatement pstmt = null;
@@ -150,7 +150,7 @@ public class KanbanBoard {
 		}
 		if (!Util.isEmpty(isReadWrite) && isReadWrite.equals("Y"))
 			return true;
-		else 
+		else
 			return false;
 	}
 
@@ -187,14 +187,14 @@ public class KanbanBoard {
 			getBoardParameters();
 			kanbanBoard.getKanbanCards();
 			kanbanBoard.setKanbanQueuedCards();
-			summarySql = null;		
+			summarySql = null;
 		}
 	}
 
 	public void refreshBoard() {
 		setKanbanBoard(-1);
 	}
-	
+
 	protected void refreshCards() {
 		kanbanBoard.refreshCards();
 	}
@@ -207,17 +207,17 @@ public class KanbanBoard {
 		orderStatuses();
 		return statuses;
 	}
-	
+
 	public List<MKanbanParameter> getBoardParameters() {
 		if (boardParameters == null) {
 			boardParameters = kanbanBoard.getParameters();
-			
+
 			for (MKanbanParameter param : boardParameters)
 				getGridField(param);
 		}
 		return boardParameters;
 	}
-	
+
 	public List<MKanbanProcess> getProcesses() {
 		if (processes == null) {
 			processes = kanbanBoard.getAssociatedProcesses();
@@ -278,7 +278,7 @@ public class KanbanBoard {
 		else
 			return statuses.size();
 	}
-	
+
 	public int getNumberOfProcesses() {
 		if (processes==null)
 			return kanbanBoard.getNumberOfProcesses();
@@ -294,54 +294,54 @@ public class KanbanBoard {
 		PO object = table.getPO(recordID, trxName);
 		return object;
 	}
-	
+
 	public int getStdColumnWidth() {
 		return kanbanBoard.getKDB_StdColumnWidth();
 	}
-	
+
 	public int getStdCardheight() {
 		return kanbanBoard.getKDB_StdCardHeight();
 	}
-	
-	
+
+
 	public String getSummarySql() {
 		if (summarySql == null && kanbanBoard.getKDB_SummarySQL() != null) {
 			summarySql = kanbanBoard.getSummarySql();
 		}
-		return summarySql;		
-	}		
+		return summarySql;
+	}
 
 	public Collection<KeyNamePair> getSaveKeys (String processType, int referenceID) {
 		// clear result from prev time
     	Collection<KeyNamePair> saveKeys = new ArrayList <KeyNamePair>();
-    	
+
     	if (processType.equals(CARD_PROCESS)) {
     		// Record-ID - Kanban Board -ID
-    		saveKeys.add(new KeyNamePair(referenceID, Integer.toString(kanbanBoard.getKDB_KanbanBoard_ID())));
+    		//devCoffee 5377
+    		saveKeys.add ( new KeyNamePair(referenceID, Integer.toString(getAd_Table_id())));
     	} else if(processType.equals(STATUS_PROCESS)) {
-    		// - Status ID -- (Table Reference ID)
-    		String statusValue = null;
-    		if (kanbanBoard.getStatus(referenceID) != null)
-    			statusValue = kanbanBoard.getStatus(referenceID).getStatusValue();
-    		
-    		saveKeys.add(new KeyNamePair(referenceID, statusValue));
+    		// - Status ID -- (Table Reference ID)    		
+    		//devCoffee 5377
+    		for(int i=0; i<kanbanBoard.getStatus(referenceID).getQueuedRecords().size(); i++){
+    			saveKeys.add(new KeyNamePair(kanbanBoard.getStatus(referenceID).getQueuedRecords().get(i).getRecordID(), Integer.toString(getAd_Table_id())));
+    		}
     	} else if (processType.equals(BOARD_PROCESS)) {
     		//Kanban Board ID - Table ID
     		saveKeys.add (new KeyNamePair(kanbanBoard.getKDB_KanbanBoard_ID(), Integer.toString(getAd_Table_id())));
     	} else
     		return null;
-    	
+
     	return saveKeys;
 	}
-	
+
 	public boolean isHTML() {
 		return kanbanBoard.get_ValueAsBoolean("IsHtml");
 	}
-	
+
 	protected GridField getGridField(MKanbanParameter parameter) {
 
 		if (parameter.getGridField() == null) {
-			
+
 			String sql;
 			if (!Env.isBaseLanguage(Env.getCtx(), kanbanBoard.getTable().getTableName())){
 				sql = "SELECT * FROM AD_Field_vt WHERE AD_Column_ID=? AND AD_Table_ID=?"
@@ -359,9 +359,9 @@ public class KanbanBoard {
 				pstmt.setInt(2, kanbanBoard.getAD_Table_ID());
 				rs = pstmt.executeQuery();
 				if (rs.next()) {
-					GridFieldVO voF = GridFieldVO.create(Env.getCtx(), 
-							windowNo, 0, 
-							rs.getInt("ad_window_id"), rs.getInt("ad_tab_id"), 
+					GridFieldVO voF = GridFieldVO.create(Env.getCtx(),
+							windowNo, 0,
+							rs.getInt("ad_window_id"), rs.getInt("ad_tab_id"),
 							false, rs);
 					GridField gridField = new GridField(voF);
 					parameter.setGridField(gridField);
@@ -374,7 +374,7 @@ public class KanbanBoard {
 				pstmt = null;
 			}
 		}
-		
+
 		return parameter.getGridField();
 	}
 }
