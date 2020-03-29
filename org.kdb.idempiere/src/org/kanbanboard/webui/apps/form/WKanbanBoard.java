@@ -923,7 +923,7 @@ public class WKanbanBoard extends KanbanBoard implements IFormController, EventL
 
 	private void zoom(int Record_ID, int AD_Table_ID, int AD_Window_ID) {
 
-		if (AD_Window_ID != 0)
+		if (AD_Window_ID == 0)
 			AD_Window_ID = Env.getZoomWindowID(AD_Table_ID, Record_ID);
 
 		//  Nothing to Zoom to
