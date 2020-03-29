@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Callout
 Bundle-SymbolicName: org.brerp.kanban.base.callout
-Bundle-Version: 7.1.0.qualifier
+Bundle-Version: 6.2.0.qualifier
 Bundle-Vendor: devCoffee
 Service-Component: OSGI-INF/brerp.kanbancalloutfactory.xml
 Require-Bundle: org.adempiere.base;bundle-version="3.1.0",
