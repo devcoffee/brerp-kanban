@@ -21,6 +21,13 @@
       <update label="brerp.kanban P2 [ by @devCoffee ]" url="http://updates.devcoffee.com.br/private/updates/brerp.kanban/5.1R1/site.p2"/>
    </url>
 
+	<plugin
+         id="org.kdb.idempiere"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+         
    <plugin
          id="org.brerp.kanban.base"
          download-size="0"

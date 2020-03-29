@@ -8,6 +8,7 @@
 	<artifactId>org.brerp.kanban.main</artifactId>
 	<packaging>pom</packaging>
 	<modules>
+		<module>org.kdb.idempiere</module>
 		<module>org.brerp.kanban.base</module>
 		<module>org.brerp.kanban.base.callout</module>
 		<module>org.brerp.kanban.base.process</module>
