@@ -8,31 +8,19 @@
 </repositories>
 	<locations>
 		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-			<unit id="org.adempiere.base.feature.feature.group" version='0.0.0'/>
-			<unit id="org.adempiere.bundles.external.feature.feature.group" version='0.0.0'/>
+<unit id="org.adempiere.base.feature.feature.group" version='0.0.0'/>
 			<unit id="org.adempiere.payment.processor.feature.feature.group" version='0.0.0'/>
 			<unit id="org.adempiere.pipo.feature.feature.group" version="0.0.0"/>
 			<unit id="org.adempiere.replication.feature.feature.group" version="0.0.0"/>
 			<unit id="org.adempiere.replication.server.feature.feature.group" version="0.0.0"/>
 			<unit id="org.adempiere.report.jasper.feature.feature.group" version="0.0.0"/>
 			<unit id="org.adempiere.server.feature.feature.group" version="0.0.0"/>
-			<unit id="org.adempiere.target.platform.feature.feature.group" version="0.0.0"/>
 			<unit id="org.adempiere.ui.zk.feature.feature.group" version="0.0.0"/>
-			<unit id="org.adempiere.webstore.feature.feature.group" version="0.0.0"/>
 			<unit id="org.compiere.db.provider.feature.feature.group" version="0.0.0"/>
-			<unit id="org.eclipse.ecf.core.feature.feature.group" version="0.0.0"/>
-			<unit id="org.eclipse.ecf.core.ssl.feature.feature.group" version="0.0.0"/>
-			<unit id="org.eclipse.ecf.filetransfer.feature.feature.group" version="0.0.0"/>
-			<unit id="org.eclipse.ecf.filetransfer.httpclient4.feature.feature.group" version="0.0.0"/>
-			<unit id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature.feature.group" version="0.0.0"/>
-			<unit id="org.eclipse.ecf.filetransfer.ssl.feature.feature.group" version="0.0.0"/>
 			<unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0"/>
-			<unit id="org.eclipse.equinox.server.core.feature.group" version="0.0.0"/>
-			<unit id="org.eclipse.equinox.server.p2.feature.group" version="0.0.0"/>
 			<unit id="org.idempiere.eclipse.platform.feature.feature.group" version="0.0.0"/>
 			<unit id="org.idempiere.equinox.p2.director.feature.feature.group" version="0.0.0"/>
 			<unit id="org.idempiere.felix.webconsole.feature.feature.group" version="0.0.0"/>
-			<unit id="org.idempiere.fitnesse.feature.feature.group" version="0.0.0"/>
 			<unit id="org.idempiere.hazelcast.service.feature.feature.group" version="0.0.0"/>
 			<unit id="org.idempiere.zk.feature.feature.group" version="0.0.0"/>
 			<repository location="file:../brerp/org.idempiere.p2/target/repository/"/>

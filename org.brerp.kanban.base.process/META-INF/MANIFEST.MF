@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Process
 Bundle-SymbolicName: org.brerp.kanban.base.process
-Bundle-Version: 7.1.0.qualifier
+Bundle-Version: 8.2.0.qualifier
 Bundle-Vendor: devCoffee
 Service-Component: OSGI-INF/brerp.kanbanprocessfactory.xml
 Require-Bundle: org.adempiere.plugin.utils;bundle-version="3.1.0",

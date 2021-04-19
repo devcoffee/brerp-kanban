@@ -2,5 +2,5 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Ui
 Bundle-SymbolicName: org.brerp.kanban.ui
-Bundle-Version: 7.1.0.qualifier
+Bundle-Version: 8.2.0.qualifier
 Bundle-Vendor: devCoffee
